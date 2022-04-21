@@ -1,0 +1,36 @@
+body {
+  margin: 1rem 3rem;
+}
+
+span.pli-lang,
+span.eng-lang {
+  display: block;
+}
+
+p span.pli-lang {
+  font-weight: bold;
+  color: gray;
+  font-family: sans-serif;
+  font-weight: 100;
+  font-size: 0.9rem;
+}
+
+span.eng-lang {
+  margin-bottom: 0.4rem;
+}
+
+header ul {
+  list-style: none;
+  padding: 0;
+}
+
+header ul li {
+  text-align: center;
+  color: gray;
+}
+
+@media only screen and (max-width: 975px) {
+  body {
+    margin: 1rem 0.5rem;
+  }
+}
