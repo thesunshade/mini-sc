@@ -23,9 +23,10 @@ function buildSutta(slug) {
         transData[segment] = "";
       }
       const [openHtml, closeHtml] = htmlData[segment].split(/{}/);
-      html += `${openHtml}<span class="pli-lang">${paliData[segment]}</span><span class="eng-lang">${transData[segment]}</span>${closeHtml}`;
+      html += `${openHtml}<span class="pli-lang" lang="pi">${paliData[segment]}</span><span class="eng-lang" lang="en">${transData[segment]}</span>${closeHtml}`;
     });
-    suttaArea.innerHTML = html;
+    const scLink = `<p class="sc-link"><a href="https://suttacentral.net/${slug}/en/sujato">On SuttaCentral.net</a></p>`;
+    suttaArea.innerHTML = scLink + html;
     const pageTile = document.querySelector("h1");
     document.title = pageTile.textContent;
   });

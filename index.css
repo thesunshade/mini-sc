@@ -2,17 +2,34 @@ body {
   margin: 1rem 3rem;
 }
 
+p {
+  margin-bottom: 1.5rem;
+}
+
+p.sc-link {
+  text-align: center;
+  margin-bottom: 0rem;
+}
+
 span.pli-lang,
 span.eng-lang {
   display: block;
 }
 
 p span.pli-lang {
-  font-weight: bold;
   color: gray;
   font-family: sans-serif;
-  font-weight: 100;
   font-size: 0.9rem;
+}
+
+p span.pli-lang,
+h1 span.pli-lang,
+h2 span.pli-lang,
+h3 span.pli-lang,
+h4 span.pli-lang,
+h5 span.pli-lang {
+  color: gray;
+  font-family: sans-serif;
 }
 
 span.eng-lang {
@@ -22,6 +39,7 @@ span.eng-lang {
 header ul {
   list-style: none;
   padding: 0;
+  margin-top: 0;
 }
 
 header ul li {
