@@ -1,6 +1,7 @@
 const suttaArea = document.getElementById("sutta");
 
 function buildSutta(slug) {
+  slug = slug.toLowerCase();
   let html = `<div class="button-area"><button id="hide-pali" class="hide-button">Toggle Pali</button></div>`;
   const rootResponse = fetch(
     `https://raw.githubusercontent.com/suttacentral/bilara-data/published/root/pli/ms/sutta/${parseSlug(
@@ -9,7 +10,12 @@ function buildSutta(slug) {
   )
     .then(response => response.json())
     .catch(error => {
-      suttaArea.innerHTML = "Sorry, that's not a valid sutta citation";
+      suttaArea.innerHTML = `Sorry, "${decodeURIComponent(slug)}" is not a valid sutta citation.
+      <br><br>
+      Note: <br>
+      Citations cannot contain spaces.<br>
+      Chapter and sutta number should be separated by a period.<br>
+      Only dn, mn, sn, and an are valid books.`;
     });
   const translationResponse = fetch(
     `https://raw.githubusercontent.com/suttacentral/bilara-data/published/translation/en/sujato/sutta/${parseSlug(

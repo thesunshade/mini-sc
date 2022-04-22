@@ -6,6 +6,17 @@ body {
   text-align: center;
 }
 
+#citation {
+  border-radius: 0;
+  border: 1px solid;
+}
+
+.go-button {
+  border-radius: 0;
+  border: 1px solid;
+  border-left: 0px;
+}
+
 p {
   margin-bottom: 1.5rem;
 }
