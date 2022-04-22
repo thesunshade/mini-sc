@@ -3,17 +3,23 @@ const suttaArea = document.getElementById("sutta");
 function buildSutta(slug) {
   let html = "";
   const rootResponse = fetch(
-    `https://raw.githubusercontent.com/suttacentral/bilara-data/published/root/pli/ms/sutta/${slug}_root-pli-ms.json`
+    `https://raw.githubusercontent.com/suttacentral/bilara-data/published/root/pli/ms/sutta/${parseSlug(
+      slug
+    )}_root-pli-ms.json`
   )
     .then(response => response.json())
     .catch(error => {
       suttaArea.innerHTML = "Sorry, that's not a valid sutta citation";
     });
   const translationResponse = fetch(
-    `https://raw.githubusercontent.com/suttacentral/bilara-data/published/translation/en/sujato/sutta/${slug}_translation-en-sujato.json`
+    `https://raw.githubusercontent.com/suttacentral/bilara-data/published/translation/en/sujato/sutta/${parseSlug(
+      slug
+    )}_translation-en-sujato.json`
   ).then(response => response.json());
   const htmlResponse = fetch(
-    `https://raw.githubusercontent.com/suttacentral/bilara-data/published/html/pli/ms/sutta/${slug}_html.json`
+    `https://raw.githubusercontent.com/suttacentral/bilara-data/published/html/pli/ms/sutta/${parseSlug(
+      slug
+    )}_html.json`
   ).then(response => response.json());
   Promise.all([rootResponse, translationResponse, htmlResponse]).then(responses => {
     const [paliData, transData, htmlData] = responses;
@@ -32,7 +38,7 @@ function buildSutta(slug) {
   });
 }
 
-buildSutta(parseSlug(document.location.search.replace("?", "")));
+buildSutta(document.location.search.replace("?", ""));
 
 function parseSlug(slug) {
   const slugParts = slug.match(/^([a-z]+)(\d*)\.*(\d*)/);
