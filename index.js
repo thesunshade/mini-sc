@@ -29,7 +29,7 @@ function buildSutta(slug) {
         transData[segment] = "";
       }
       const [openHtml, closeHtml] = htmlData[segment].split(/{}/);
-      html += `${openHtml}<span class="pli-lang" lang="pi">${paliData[segment]}</span><span class="eng-lang" lang="en">${transData[segment]}</span>${closeHtml}`;
+      html += `${openHtml}<span class="pli-lang" lang="pi">${paliData[segment]}</span><span class="eng-lang" lang="en">${transData[segment]}</span>${closeHtml}\n\n`;
     });
     const scLink = `<p class="sc-link"><a href="https://suttacentral.net/${slug}/en/sujato">On SuttaCentral.net</a></p>`;
     suttaArea.innerHTML = scLink + html;
@@ -45,7 +45,6 @@ function parseSlug(slug) {
   const book = slugParts[1];
   const firstNum = slugParts[2];
 
-  console.log(book);
   if (book === "dn" || book === "mn") {
     return `${book}/${slug}`;
   } else if (book === "sn" || book === "an") {
