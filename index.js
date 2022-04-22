@@ -79,3 +79,5 @@ form.addEventListener("submit", e => {
   buildSutta(citation.value);
   document.location.search = "?" + citation.value;
 });
+
+citation.value = document.location.search.replace("?", "");
