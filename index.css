@@ -31,10 +31,15 @@ span.eng-lang {
   display: block;
 }
 
+blockquote.gatha p span.verse-line span.eng-lang.unblock-english {
+  display: block !important;
+  margin-bottom: 0rem;
+}
+
 p span.pli-lang {
   color: gray;
   font-family: sans-serif;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 p span.pli-lang,

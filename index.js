@@ -3,6 +3,7 @@ const suttaArea = document.getElementById("sutta");
 function buildSutta(slug) {
   slug = slug.toLowerCase();
   let html = `<div class="button-area"><button id="hide-pali" class="hide-button">Toggle Pali</button></div>`;
+
   const rootResponse = fetch(
     `https://raw.githubusercontent.com/suttacentral/bilara-data/published/root/pli/ms/sutta/${parseSlug(
       slug
@@ -27,6 +28,7 @@ function buildSutta(slug) {
       slug
     )}_html.json`
   ).then(response => response.json());
+
   Promise.all([rootResponse, translationResponse, htmlResponse]).then(responses => {
     const [paliData, transData, htmlData] = responses;
 
@@ -42,22 +44,68 @@ function buildSutta(slug) {
     const pageTile = document.querySelector("h1");
     document.title = pageTile.textContent;
 
-    const hideButton = document.getElementById("hide-pali");
-    hideButton.addEventListener("click", () => {
-      const paliSpans = document.querySelectorAll("p span.pli-lang");
-      for (let i = 0; i < paliSpans.length; i++) {
-        paliSpans[i].classList.toggle("hide-pali");
-      }
-      const englishSpans = document.getElementsByClassName("eng-lang");
-      for (let i = 0; i < paliSpans.length; i++) {
-        englishSpans[i].classList.toggle("unblock-english");
-      }
-    });
+    toggleThePali();
   });
 }
 
+// initialize
 if (document.location.search) {
   buildSutta(document.location.search.replace("?", ""));
+} else {
+  suttaArea.innerHTML = `<div class="instructions">
+  <p>Put a citation following the url, preceded by a "?" mark. For example:</p>
+  <ul>
+      <li>index.html?dn12</li>
+      <li>index.html?mn123</li>
+      <li>index.html?sn1.23</li>
+      <li>index.html?an3.23</li>
+  </ul>
+
+  <p>Suttas that are part of a series require that you enter the exact series.</p>
+</div>`;
+}
+
+function toggleThePali() {
+  const paliSpans = document.querySelectorAll("p span.pli-lang, li span.pli-lang ");
+  const englishSpans = document.getElementsByClassName("eng-lang");
+  const hideButton = document.getElementById("hide-pali");
+
+  function removePali() {
+    for (let i = 0; i < paliSpans.length; i++) {
+      paliSpans[i].classList.add("hide-pali");
+    }
+    for (let i = 0; i < paliSpans.length; i++) {
+      englishSpans[i].classList.add("unblock-english");
+    }
+  }
+
+  function addPali() {
+    for (let i = 0; i < paliSpans.length; i++) {
+      paliSpans[i].classList.remove("hide-pali");
+    }
+    for (let i = 0; i < paliSpans.length; i++) {
+      englishSpans[i].classList.remove("unblock-english");
+    }
+  }
+
+  // initial state
+  if (localStorage.paliToggle) {
+    if (localStorage.paliToggle === "hide") {
+      removePali();
+    }
+  } else {
+    localStorage.paliToggle = "show";
+  }
+
+  hideButton.addEventListener("click", () => {
+    if (localStorage.paliToggle === "show") {
+      removePali();
+      localStorage.paliToggle = "hide";
+    } else {
+      addPali();
+      localStorage.paliToggle = "show";
+    }
+  });
 }
 
 function parseSlug(slug) {
