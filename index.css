@@ -2,6 +2,10 @@ body {
   margin: 1rem 3rem;
 }
 
+#form {
+  text-align: center;
+}
+
 p {
   margin-bottom: 1.5rem;
 }
@@ -30,6 +34,18 @@ h4 span.pli-lang,
 h5 span.pli-lang {
   color: #5a5a5a;
   font-family: sans-serif;
+}
+
+.button-area {
+  text-align: center;
+}
+
+.hide-pali {
+  display: none !important;
+}
+
+.unblock-english {
+  display: inline !important;
 }
 
 span.eng-lang {

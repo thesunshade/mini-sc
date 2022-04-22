@@ -1,7 +1,7 @@
 const suttaArea = document.getElementById("sutta");
 
 function buildSutta(slug) {
-  let html = "";
+  let html = `<div class="button-area"><button id="hide-pali" class="hide-button">Toggle Pali</button></div>`;
   const rootResponse = fetch(
     `https://raw.githubusercontent.com/suttacentral/bilara-data/published/root/pli/ms/sutta/${parseSlug(
       slug
@@ -35,10 +35,24 @@ function buildSutta(slug) {
     suttaArea.innerHTML = scLink + html;
     const pageTile = document.querySelector("h1");
     document.title = pageTile.textContent;
+
+    const hideButton = document.getElementById("hide-pali");
+    hideButton.addEventListener("click", () => {
+      const paliSpans = document.getElementsByClassName("pli-lang");
+      for (let i = 0; i < paliSpans.length; i++) {
+        paliSpans[i].classList.toggle("hide-pali");
+      }
+      const englishSpans = document.getElementsByClassName("eng-lang");
+      for (let i = 0; i < paliSpans.length; i++) {
+        englishSpans[i].classList.toggle("unblock-english");
+      }
+    });
   });
 }
 
-buildSutta(document.location.search.replace("?", ""));
+if (document.location.search) {
+  buildSutta(document.location.search.replace("?", ""));
+}
 
 function parseSlug(slug) {
   const slugParts = slug.match(/^([a-z]+)(\d*)\.*(\d*)/);
@@ -51,3 +65,11 @@ function parseSlug(slug) {
     return `${book}/${book}${firstNum}/${slug}`;
   }
 }
+
+const form = document.getElementById("form");
+const citation = document.getElementById("citation");
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  buildSutta(citation.value);
+  document.location.search = "?" + citation.value;
+});
