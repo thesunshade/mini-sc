@@ -38,7 +38,7 @@ function buildSutta(slug) {
 
     const hideButton = document.getElementById("hide-pali");
     hideButton.addEventListener("click", () => {
-      const paliSpans = document.getElementsByClassName("pli-lang");
+      const paliSpans = document.querySelectorAll("p span.pli-lang");
       for (let i = 0; i < paliSpans.length; i++) {
         paliSpans[i].classList.toggle("hide-pali");
       }
