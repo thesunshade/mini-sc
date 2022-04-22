@@ -37,7 +37,10 @@ h5 span.pli-lang {
 }
 
 .button-area {
-  text-align: center;
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  /* text-align: center; */
 }
 
 .hide-pali {
@@ -66,5 +69,10 @@ header ul li {
 @media only screen and (max-width: 975px) {
   body {
     margin: 1rem 0.5rem;
+  }
+  .button-area {
+    right: 1px;
+    top: 1px;
+    /* text-align: center; */
   }
 }
