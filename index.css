@@ -28,7 +28,7 @@ h2 span.pli-lang,
 h3 span.pli-lang,
 h4 span.pli-lang,
 h5 span.pli-lang {
-  color: gray;
+  color: #5a5a5a;
   font-family: sans-serif;
 }
 
@@ -44,7 +44,7 @@ header ul {
 
 header ul li {
   text-align: center;
-  color: gray;
+  color: #5a5a5a;
 }
 
 @media only screen and (max-width: 975px) {
