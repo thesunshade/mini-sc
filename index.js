@@ -16,7 +16,8 @@ function buildSutta(slug) {
       Note: <br>
       Citations cannot contain spaces.<br>
       Chapter and sutta number should be separated by a period.<br>
-      Only dn, mn, sn, and an are valid books.`;
+      Only dn, mn, sn, and an are valid books.<br>
+      Suttas that are part of a series require that you enter the exact series.`;
     });
   const translationResponse = fetch(
     `https://raw.githubusercontent.com/suttacentral/bilara-data/published/translation/en/sujato/sutta/${parseSlug(
@@ -66,32 +67,12 @@ if (document.location.search) {
 }
 
 function toggleThePali() {
-  const paliSpans = document.querySelectorAll("p span.pli-lang, li span.pli-lang ");
-  const englishSpans = document.getElementsByClassName("eng-lang");
   const hideButton = document.getElementById("hide-pali");
-
-  function removePali() {
-    for (let i = 0; i < paliSpans.length; i++) {
-      paliSpans[i].classList.add("hide-pali");
-    }
-    for (let i = 0; i < paliSpans.length; i++) {
-      englishSpans[i].classList.add("unblock-english");
-    }
-  }
-
-  function addPali() {
-    for (let i = 0; i < paliSpans.length; i++) {
-      paliSpans[i].classList.remove("hide-pali");
-    }
-    for (let i = 0; i < paliSpans.length; i++) {
-      englishSpans[i].classList.remove("unblock-english");
-    }
-  }
 
   // initial state
   if (localStorage.paliToggle) {
     if (localStorage.paliToggle === "hide") {
-      removePali();
+      suttaArea.classList.add("hide-pali");
     }
   } else {
     localStorage.paliToggle = "show";
@@ -99,10 +80,10 @@ function toggleThePali() {
 
   hideButton.addEventListener("click", () => {
     if (localStorage.paliToggle === "show") {
-      removePali();
+      suttaArea.classList.add("hide-pali");
       localStorage.paliToggle = "hide";
     } else {
-      addPali();
+      suttaArea.classList.remove("hide-pali");
       localStorage.paliToggle = "show";
     }
   });

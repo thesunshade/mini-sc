@@ -23,17 +23,13 @@ p {
 
 p.sc-link {
   text-align: center;
-  margin-bottom: 0rem;
+  margin-bottom: 0rem !important;
+  margin-top: 1rem !important;
 }
 
 span.pli-lang,
 span.eng-lang {
   display: block;
-}
-
-blockquote.gatha p span.verse-line span.eng-lang.unblock-english {
-  display: block !important;
-  margin-bottom: 0rem;
 }
 
 p span.pli-lang {
@@ -59,12 +55,25 @@ h5 span.pli-lang {
   /* text-align: center; */
 }
 
-.hide-pali {
+#sutta.hide-pali p span.pli-lang,
+#sutta.hide-pali h2 span.pli-lang,
+#sutta.hide-pali h3 span.pli-lang,
+#sutta.hide-pali h4 span.pli-lang,
+#sutta.hide-pali li span.pli-lang {
   display: none !important;
 }
 
-.unblock-english {
+#sutta.hide-pali p span.eng-lang {
   display: inline !important;
+}
+
+#sutta.hide-pali p {
+  margin: 0px 0px 0.8rem 0rem;
+}
+
+#sutta.hide-pali blockquote.gatha p span.verse-line span.eng-lang {
+  display: block !important;
+  margin-bottom: 0rem;
 }
 
 span.eng-lang {
