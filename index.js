@@ -37,7 +37,8 @@ function buildSutta(slug) {
       if (transData[segment] === undefined) {
         transData[segment] = "";
       }
-      const [openHtml, closeHtml] = htmlData[segment].split(/{}/);
+      let [openHtml, closeHtml] = htmlData[segment].split(/{}/);
+      // openHtml = openHtml.replace(/^<span class='verse-line'>/, "<br><span class='verse-line'>");
       html += `${openHtml}<span class="pli-lang" lang="pi">${paliData[segment]}</span><span class="eng-lang" lang="en">${transData[segment]}</span>${closeHtml}\n\n`;
     });
     const scLink = `<p class="sc-link"><a href="https://suttacentral.net/${slug}/en/sujato">On SuttaCentral.net</a></p>`;
@@ -54,12 +55,19 @@ if (document.location.search) {
   buildSutta(document.location.search.replace("?", ""));
 } else {
   suttaArea.innerHTML = `<div class="instructions">
-  <p>Put a citation following the url, preceded by a "?" mark. For example:</p>
+  <p>Citations must exactly match those found on SuttaCentral.net. No spaces. Separate chapter and sutta with a period. The following books work:</p>
   <ul>
-      <li>index.html?dn12</li>
-      <li>index.html?mn123</li>
-      <li>index.html?sn1.23</li>
-      <li>index.html?an3.23</li>
+      <li>DN</li>
+      <li>MN</li>
+      <li>SN</li>
+      <li>AN</li>
+      <li>Kp</li>
+      <li>Dhp (must have exact range)</li>
+      <li>Ud</li>
+      <li>Iti (1–112)</li>
+      <li>Snp</li>
+      <li>Thag</li>
+      <li>Thig</li>
   </ul>
 
   <p>Suttas that are part of a series require that you enter the exact series.</p>
@@ -98,6 +106,46 @@ function parseSlug(slug) {
     return `${book}/${slug}`;
   } else if (book === "sn" || book === "an") {
     return `${book}/${book}${firstNum}/${slug}`;
+  } else if (book === "kp") {
+    return `kn/kp/${slug}`;
+  } else if (book === "dhp") {
+    return `kn/dhp/${slug}`;
+  } else if (book === "ud") {
+    return `kn/ud/vagga${firstNum}/${slug}`;
+  } else if (book === "iti") {
+    return `kn/iti/vagga${findItiVagga(firstNum)}/${slug}`;
+  } else if (book === "snp") {
+    return `kn/snp/vagga${firstNum}/${slug}`;
+  } else if (book === "thag" || book === "thig") {
+    return `kn/${book}/${slug}`;
+  }
+}
+
+function findItiVagga(suttaNumber) {
+  if (suttaNumber >= 1 && suttaNumber <= 10) {
+    return "1";
+  } else if (suttaNumber >= 1 && suttaNumber <= 10) {
+    return "1";
+  } else if (suttaNumber >= 11 && suttaNumber <= 20) {
+    return "2";
+  } else if (suttaNumber >= 21 && suttaNumber <= 27) {
+    return "3";
+  } else if (suttaNumber >= 28 && suttaNumber <= 37) {
+    return "4";
+  } else if (suttaNumber >= 38 && suttaNumber <= 49) {
+    return "5";
+  } else if (suttaNumber >= 50 && suttaNumber <= 59) {
+    return "6";
+  } else if (suttaNumber >= 60 && suttaNumber <= 69) {
+    return "7";
+  } else if (suttaNumber >= 70 && suttaNumber <= 79) {
+    return "8";
+  } else if (suttaNumber >= 80 && suttaNumber <= 89) {
+    return "9";
+  } else if (suttaNumber >= 90 && suttaNumber <= 99) {
+    return "10";
+  } else if (suttaNumber >= 100 && suttaNumber <= 112) {
+    return "11";
   }
 }
 
