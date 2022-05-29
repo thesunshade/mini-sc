@@ -1,4 +1,9 @@
 const suttaArea = document.getElementById("sutta");
+const homeButton = document.getElementById("home-button");
+
+homeButton.addEventListener("click", () => {
+  document.location.search = "";
+});
 
 function buildSutta(slug) {
   slug = slug.toLowerCase();

@@ -4,6 +4,9 @@ body {
 
 #form {
   text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 #citation {
@@ -11,10 +14,25 @@ body {
   border: 1px solid;
 }
 
+#citation:focus {
+  background-color: palegoldenrod;
+  outline: none;
+}
+
 .go-button {
   border-radius: 0;
   border: 1px solid;
   border-left: 0px;
+}
+
+.home-button {
+  border: none;
+  background: none;
+  margin-left: 5px;
+}
+
+.home-button svg {
+  margin-top: 3px;
 }
 
 p {
@@ -103,4 +121,23 @@ header ul li {
 
 br {
   line-height: 0px;
+}
+
+.links-area {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.links-area a {
+  position: relative;
+  top: 0;
+  transition: all ease 0.5s;
+  filter: opacity(40%);
+}
+.links-area a:hover {
+  top: -3px;
+  filter: opacity(100%);
 }
