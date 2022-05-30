@@ -1,5 +1,7 @@
 const suttaArea = document.getElementById("sutta");
 const homeButton = document.getElementById("home-button");
+const previous = document.getElementById("previous");
+const next = document.getElementById("next");
 
 homeButton.addEventListener("click", () => {
   document.location.search = "";
@@ -9,11 +11,7 @@ function buildSutta(slug) {
   slug = slug.toLowerCase();
   let html = `<div class="button-area"><button id="hide-pali" class="hide-button">Toggle Pali</button></div>`;
 
-  const rootResponse = fetch(
-    `https://raw.githubusercontent.com/suttacentral/bilara-data/published/root/pli/ms/sutta/${parseSlug(
-      slug
-    )}_root-pli-ms.json`
-  )
+  const contentResponse = fetch(`https://suttacentral.net/api/bilarasuttas/${slug}/sujato?lang=en`)
     .then(response => response.json())
     .catch(error => {
       suttaArea.innerHTML = `Sorry, "${decodeURIComponent(slug)}" is not a valid sutta citation.
@@ -24,27 +22,24 @@ function buildSutta(slug) {
       Only dn, mn, sn, and an are valid books.<br>
       Suttas that are part of a series require that you enter the exact series.`;
     });
-  const translationResponse = fetch(
-    `https://raw.githubusercontent.com/suttacentral/bilara-data/published/translation/en/sujato/sutta/${parseSlug(
-      slug
-    )}_translation-en-sujato.json`
-  ).then(response => response.json());
-  const htmlResponse = fetch(
-    `https://raw.githubusercontent.com/suttacentral/bilara-data/published/html/pli/ms/sutta/${parseSlug(
-      slug
-    )}_html.json`
-  ).then(response => response.json());
 
-  Promise.all([rootResponse, translationResponse, htmlResponse]).then(responses => {
-    const [paliData, transData, htmlData] = responses;
+  const suttaplex = fetch(`https://suttacentral.net/api/suttas/${slug}/sujato?lang=en&siteLanguage=en`).then(response =>
+    response.json()
+  );
 
-    Object.keys(htmlData).forEach(segment => {
-      if (transData[segment] === undefined) {
-        transData[segment] = "";
+  Promise.all([contentResponse, suttaplex]).then(responses => {
+    const [contentResponse, suttaplex] = responses;
+    const { html_text, translation_text, root_text, keys_order } = contentResponse;
+    console.log("next");
+    console.log(suttaplex.root_text.next);
+
+    keys_order.forEach(segment => {
+      if (translation_text[segment] === undefined) {
+        translation_text[segment] = "";
       }
-      let [openHtml, closeHtml] = htmlData[segment].split(/{}/);
+      let [openHtml, closeHtml] = html_text[segment].split(/{}/);
       // openHtml = openHtml.replace(/^<span class='verse-line'>/, "<br><span class='verse-line'>");
-      html += `${openHtml}<span class="pli-lang" lang="pi">${paliData[segment]}</span><span class="eng-lang" lang="en">${transData[segment]}</span>${closeHtml}\n\n`;
+      html += `${openHtml}<span class="pli-lang" lang="pi">${root_text[segment]}</span><span class="eng-lang" lang="en">${translation_text[segment]}</span>${closeHtml}\n\n`;
     });
     const scLink = `<p class="sc-link"><a href="https://suttacentral.net/${slug}/en/sujato">On SuttaCentral.net</a></p>`;
     suttaArea.innerHTML = scLink + html;
@@ -52,8 +47,34 @@ function buildSutta(slug) {
     document.title = pageTile.textContent;
 
     toggleThePali();
+    next.innerHTML = suttaplex.root_text.next.name
+      ? `<a href="?${suttaplex.root_text.next.uid}">${suttaplex.root_text.next.name}🠖</a>`
+      : "";
+    previous.innerHTML = suttaplex.root_text.previous.name
+      ? `<a href="?${suttaplex.root_text.previous.uid}">🠔 ${suttaplex.root_text.previous.name}</a>`
+      : "";
   });
 }
+
+//   Promise.all([rootResponse, translationResponse, htmlResponse]).then(responses => {
+//     const [paliData, transData, html_text] = responses;
+
+//     Object.keys(htmlData).forEach(segment => {
+//       if (transData[segment] === undefined) {
+//         transData[segment] = "";
+//       }
+//       let [openHtml, closeHtml] = htmlData[segment].split(/{}/);
+//       // openHtml = openHtml.replace(/^<span class='verse-line'>/, "<br><span class='verse-line'>");
+//       html += `${openHtml}<span class="pli-lang" lang="pi">${paliData[segment]}</span><span class="eng-lang" lang="en">${transData[segment]}</span>${closeHtml}\n\n`;
+//     });
+//     const scLink = `<p class="sc-link"><a href="https://suttacentral.net/${slug}/en/sujato">On SuttaCentral.net</a></p>`;
+//     suttaArea.innerHTML = scLink + html;
+//     const pageTile = document.querySelector("h1");
+//     document.title = pageTile.textContent;
+
+//     toggleThePali();
+//   });
+// }
 
 // initialize
 if (document.location.search) {
