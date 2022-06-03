@@ -11,8 +11,9 @@ const form = document.getElementById("form");
 const citation = document.getElementById("citation");
 form.addEventListener("submit", e => {
   e.preventDefault();
-  // buildSutta(citation.value);
-  document.location.search = "?" + citation.value.replace(/\s/g, "");
+  // document.location.search = "?" + citation.value.replace(/\s/g, "");
+  buildSutta(citation.value.replace(/\s/g, ""));
+  history.pushState({ page: citation.value.replace(/\s/g, "") }, "", `?${citation.value.replace(/\s/g, "")}`);
 });
 
 citation.value = document.location.search.replace("?", "").replace(/%20/g, "").replace(/\s/g, "");
@@ -48,6 +49,7 @@ function buildSutta(slug) {
       document.title = pageTile.textContent;
 
       toggleThePali();
+
       next.innerHTML = suttaplex.root_text.next.name
         ? `<a href="?${suttaplex.root_text.next.uid}">${suttaplex.root_text.next.name}<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="body_1" width="15" height="11">
 
