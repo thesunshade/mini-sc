@@ -34,7 +34,6 @@ function buildSutta(slug) {
     .then(responses => {
       const [contentResponse, suttaplex] = responses;
       const { html_text, translation_text, root_text, keys_order } = contentResponse;
-      console.log(responses);
       keys_order.forEach(segment => {
         if (translation_text[segment] === undefined) {
           translation_text[segment] = "";

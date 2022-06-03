@@ -73,6 +73,12 @@ h5 span.pli-lang {
   /* text-align: center; */
 }
 
+#sutta {
+  max-width: 45rem;
+  margin: auto;
+  line-height: 1.5;
+}
+
 #sutta.hide-pali p span.pli-lang,
 #sutta.hide-pali h2 span.pli-lang,
 #sutta.hide-pali h3 span.pli-lang,
