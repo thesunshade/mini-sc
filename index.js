@@ -44,8 +44,7 @@ function buildSutta(slug) {
       });
       const scLink = `<p class="sc-link"><a href="https://suttacentral.net/${slug}/en/sujato">On SuttaCentral.net</a></p>`;
       suttaArea.innerHTML = scLink + html;
-      const pageTile = document.querySelector("h1");
-      document.title = pageTile.textContent;
+      document.title = `${suttaplex.bilara_root_text.title}: ${suttaplex.bilara_translated_text.title} — Bhikkhu Sujato — SuttaCentral`;
 
       toggleThePali();
 
