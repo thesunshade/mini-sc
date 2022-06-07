@@ -39,6 +39,21 @@ p {
   margin-bottom: 1.5rem;
 }
 
+.instructions ul li {
+  line-height: 1;
+}
+
+.lists {
+  display: flex;
+  flex-direction: row;
+}
+
+@media only screen and (max-width: 575px) {
+  .lists {
+    flex-direction: column;
+  }
+}
+
 p.sc-link {
   text-align: center;
   margin-bottom: 0rem !important;

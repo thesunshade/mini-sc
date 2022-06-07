@@ -90,13 +90,38 @@ if (document.location.search) {
 } else {
   suttaArea.innerHTML = `<div class="instructions">
   <p>Citations must exactly match those found on SuttaCentral.net. No spaces. Separate chapter and sutta with a period. The following books work:</p>
+  <div class="lists">
   <ul>
       <li>DN</li>      <li>MN</li>      <li>SN</li>      <li>AN</li>      <li>Kp</li>
-      <li>Dhp (must have exact range)</li>
+      <li>Dhp (exact range)</li>
       <li>Ud</li>
       <li>Iti (1–112)</li>
       <li>Snp</li>      <li>Thag</li>      <li>Thig</li>
   </ul>
+<ul>
+<li>pli-tv-bu-vb-pj</li>
+<li>pli-tv-bu-vb-ss</li>
+<li>pli-tv-bu-vb-ay</li>
+<li>pli-tv-bu-vb-np</li>
+<li>pli-tv-bu-vb-pc</li>
+<li>pli-tv-bu-vb-pd</li>
+<li>pli-tv-bu-vb-sk</li>
+<li>pli-tv-bu-vb-as</li></ul>
+<ul>
+<li>pli-tv-bi-vb-pj</li>
+<li>pli-tv-bi-vb-ss</li>
+<li>pli-tv-bi-vb-ay</li>
+<li>pli-tv-bi-vb-np</li>
+<li>pli-tv-bi-vb-pc</li>
+<li>pli-tv-bi-vb-pd</li>
+<li>pli-tv-bi-vb-sk</li>
+<li>pli-tv-bi-vb-as</li>
+</ul><ul>
+<li>pli-tv-kd</li>
+<li>pli-tv-pvr</li>
+</ul>
+
+  </div>
   <p>Suttas that are part of a series require that you enter the exact series.</p>
 </div>`;
 }
