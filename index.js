@@ -20,10 +20,21 @@ citation.value = document.location.search.replace("?", "").replace(/%20/g, "").r
 
 function buildSutta(slug) {
   let translator = "sujato";
-  if (slug.match("pli")) {
-    translator = "brahmali";
-  }
   slug = slug.toLowerCase();
+
+  if (slug.match("bu") || slug.match("bi") || slug.match("kd") || slug.match("pvr")) {
+    translator = "brahmali";
+    if (!slug.match("pli-tv-")) {
+      slug = "pli-tv-" + slug;
+    }
+    if (!slug.match("vb-")) {
+      slug = slug.replace("bu-", "bu-vb-");
+    }
+    if (!slug.match("vb-")) {
+      slug = slug.replace("bi-", "bi-vb-");
+    }
+  }
+  console.log(slug);
   let html = `<div class="button-area"><button id="hide-pali" class="hide-button">Toggle Pali</button></div>`;
 
   const contentResponse = fetch(`https://suttacentral.net/api/bilarasuttas/${slug}/${translator}?lang=en`).then(
@@ -99,26 +110,26 @@ if (document.location.search) {
       <li>Snp</li>      <li>Thag</li>      <li>Thig</li>
   </ul>
 <ul>
-<li>pli-tv-bu-vb-pj</li>
-<li>pli-tv-bu-vb-ss</li>
-<li>pli-tv-bu-vb-ay</li>
-<li>pli-tv-bu-vb-np</li>
-<li>pli-tv-bu-vb-pc</li>
-<li>pli-tv-bu-vb-pd</li>
-<li>pli-tv-bu-vb-sk</li>
-<li>pli-tv-bu-vb-as</li></ul>
+<li>bu-pj</li>
+<li>bu-ss</li>
+<li>bu-ay</li>
+<li>bu-np</li>
+<li>bu-pc</li>
+<li>bu-pd</li>
+<li>bu-sk</li>
+<li>bu-as</li></ul>
 <ul>
-<li>pli-tv-bi-vb-pj</li>
-<li>pli-tv-bi-vb-ss</li>
-<li>pli-tv-bi-vb-ay</li>
-<li>pli-tv-bi-vb-np</li>
-<li>pli-tv-bi-vb-pc</li>
-<li>pli-tv-bi-vb-pd</li>
-<li>pli-tv-bi-vb-sk</li>
-<li>pli-tv-bi-vb-as</li>
+<li>bi-pj</li>
+<li>bi-ss</li>
+<li>bi-ay</li>
+<li>bi-np</li>
+<li>bi-pc</li>
+<li>bi-pd</li>
+<li>bi-sk</li>
+<li>bi-as</li>
 </ul><ul>
-<li>pli-tv-kd</li>
-<li>pli-tv-pvr</li>
+<li>kd</li>
+<li>pvr</li>
 </ul>
 
   </div>

@@ -48,7 +48,7 @@ p {
   flex-direction: row;
 }
 
-@media only screen and (max-width: 575px) {
+@media only screen and (max-width: 475px) {
   .lists {
     flex-direction: column;
   }
