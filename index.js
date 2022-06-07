@@ -121,7 +121,6 @@ if (document.location.search) {
 <ul>
 <li>bi-pj</li>
 <li>bi-ss</li>
-<li>bi-ay</li>
 <li>bi-np</li>
 <li>bi-pc</li>
 <li>bi-pd</li>
