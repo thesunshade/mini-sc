@@ -19,15 +19,19 @@ form.addEventListener("submit", e => {
 citation.value = document.location.search.replace("?", "").replace(/%20/g, "").replace(/\s/g, "");
 
 function buildSutta(slug) {
+  let translator = "sujato";
+  if (slug.match("pli")) {
+    translator = "brahmali";
+  }
   slug = slug.toLowerCase();
   let html = `<div class="button-area"><button id="hide-pali" class="hide-button">Toggle Pali</button></div>`;
 
-  const contentResponse = fetch(`https://suttacentral.net/api/bilarasuttas/${slug}/sujato?lang=en`).then(response =>
-    response.json()
+  const contentResponse = fetch(`https://suttacentral.net/api/bilarasuttas/${slug}/${translator}?lang=en`).then(
+    response => response.json()
   );
 
-  const suttaplex = fetch(`https://suttacentral.net/api/suttas/${slug}/sujato?lang=en&siteLanguage=en`).then(response =>
-    response.json()
+  const suttaplex = fetch(`https://suttacentral.net/api/suttas/${slug}/${translator}?lang=en&siteLanguage=en`).then(
+    response => response.json()
   );
 
   Promise.all([contentResponse, suttaplex])
