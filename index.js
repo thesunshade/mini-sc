@@ -24,6 +24,8 @@ function buildSutta(slug) {
 
   if (slug.match("bu") || slug.match("bi") || slug.match("kd") || slug.match("pvr")) {
     translator = "brahmali";
+    slug = slug.replace(/bu([psan])/, "bu-$1");
+    slug = slug.replace(/bi([psn])/, "bi-$1");
     if (!slug.match("pli-tv-")) {
       slug = "pli-tv-" + slug;
     }
