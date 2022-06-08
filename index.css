@@ -91,6 +91,10 @@ dd span.pli-lang {
   font-size: 1rem;
 }
 
+dt {
+  font-weight: bold;
+}
+
 p span.pli-lang,
 h1 span.pli-lang,
 h2 span.pli-lang,
