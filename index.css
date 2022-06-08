@@ -43,9 +43,26 @@ p {
   line-height: 1;
 }
 
+.instructions ul {
+  margin-top: 0rem;
+}
+
+.instructions h2 {
+  font-size: 1.2rem;
+  margin-top: 0rem;
+  margin-bottom: 0.1rem;
+  margin-left: 1.8rem;
+}
+
 .lists {
   display: flex;
   flex-direction: row;
+  column-gap: 2rem;
+}
+
+.vinaya {
+  display: flex;
+  -webkit-box-flex-group: row;
 }
 
 @media only screen and (max-width: 475px) {
@@ -65,7 +82,10 @@ span.eng-lang {
   display: block;
 }
 
-p span.pli-lang {
+p span.pli-lang,
+dt span.pli-lang,
+li span.pli-lang,
+dd span.pli-lang {
   color: gray;
   font-family: sans-serif;
   font-size: 1rem;
