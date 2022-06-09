@@ -105,7 +105,7 @@ if (document.location.search) {
   buildSutta(document.location.search.replace("?", "").replace(/\s/g, "").replace(/%20/g, ""));
 } else {
   suttaArea.innerHTML = `<div class="instructions">
-  <p>Citations must exactly match those found on SuttaCentral.net. No spaces. Separate chapter and sutta with a period. The following collections work:</p>
+  <p>Citations must exactly match those found on SuttaCentral.net. No spaces. Separate chapter and sutta with a period. The following collections work. Click them to add to input box.</p>
   <div class="lists">
 
   <div class="suttas">
