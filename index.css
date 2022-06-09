@@ -53,6 +53,7 @@ p {
 
 .instructions ul {
   margin-top: 0rem;
+  padding: 0rem;
   list-style-type: none;
 }
 
@@ -60,7 +61,7 @@ p {
   font-size: 1.2rem;
   margin-top: 0rem;
   margin-bottom: 0.1rem;
-  margin-left: 1.8rem;
+  margin-left: 0rem;
 }
 .instructions h3 {
   font-size: 1rem;
@@ -72,12 +73,21 @@ p {
 .lists {
   display: flex;
   flex-direction: row;
-  column-gap: 2rem;
+  column-gap: 0rem;
 }
+
+.suttas {
+  width: 12rem;
+}
+
+/* * {
+  border: solid 1px green;
+} */
 
 .vinaya {
   display: flex;
-  -webkit-box-flex-group: row;
+  flex-direction: row;
+  gap: 1.5rem;
 }
 
 @media only screen and (max-width: 730px) {

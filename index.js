@@ -108,7 +108,7 @@ if (document.location.search) {
   <p>Citations must exactly match those found on SuttaCentral.net. No spaces. Separate chapter and sutta with a period. The following collections work:</p>
   <div class="lists">
 
-  <div>
+  <div class="suttas">
   <h2>Suttas</h2>
   <ul>
       <li><span class="abbr">dn</span> Dīgha-nikāya</li>
