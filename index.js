@@ -11,6 +11,7 @@ const form = document.getElementById("form");
 const citation = document.getElementById("citation");
 form.addEventListener("submit", e => {
   e.preventDefault();
+  // to add hard breaks in verses, add:
   // document.location.search = "?" + citation.value.replace(/\s/g, "");
   buildSutta(citation.value.replace(/\s/g, ""));
   history.pushState({ page: citation.value.replace(/\s/g, "") }, "", `?${citation.value.replace(/\s/g, "")}`);
@@ -22,7 +23,7 @@ function buildSutta(slug) {
   let translator = "sujato";
   slug = slug.toLowerCase();
 
-  if (slug.match("bu") || slug.match("bi") || slug.match("kd") || slug.match("pvr")) {
+  if (slug.match(/bu|bi|kd|pvr/)) {
     translator = "brahmali";
     slug = slug.replace(/bu([psan])/, "bu-$1");
     slug = slug.replace(/bi([psn])/, "bi-$1");
@@ -103,6 +104,7 @@ function buildSutta(slug) {
 if (document.location.search) {
   buildSutta(document.location.search.replace("?", "").replace(/\s/g, "").replace(/%20/g, ""));
 } else {
+
   suttaArea.innerHTML = `<div class="instructions">
   <p>Citations must exactly match those found on SuttaCentral.net. No spaces. Separate chapter and sutta with a period. The following collections work:</p>
   <div class="lists">
@@ -142,8 +144,10 @@ if (document.location.search) {
 </ul>
 </div>
   </div></div>
+
   <p>Suttas that are part of a series require that you enter the exact series.</p>
-</div>`;
+</div>
+`;
 }
 
 function toggleThePali() {
