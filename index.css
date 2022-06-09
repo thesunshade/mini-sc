@@ -45,6 +45,7 @@ p {
 
 .instructions ul {
   margin-top: 0rem;
+  list-style-type: circle;
 }
 
 .instructions h2 {

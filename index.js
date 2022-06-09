@@ -11,6 +11,7 @@ const form = document.getElementById("form");
 const citation = document.getElementById("citation");
 form.addEventListener("submit", e => {
   e.preventDefault();
+  // to add hard breaks in verses, add:
   // document.location.search = "?" + citation.value.replace(/\s/g, "");
   buildSutta(citation.value.replace(/\s/g, ""));
   history.pushState({ page: citation.value.replace(/\s/g, "") }, "", `?${citation.value.replace(/\s/g, "")}`);
@@ -22,7 +23,7 @@ function buildSutta(slug) {
   let translator = "sujato";
   slug = slug.toLowerCase();
 
-  if (slug.match("bu") || slug.match("bi") || slug.match("kd") || slug.match("pvr")) {
+  if (slug.match(/bu|bi|kd|pvr/)) {
     translator = "brahmali";
     slug = slug.replace(/bu([psan])/, "bu-$1");
     slug = slug.replace(/bi([psn])/, "bi-$1");
@@ -103,47 +104,58 @@ function buildSutta(slug) {
 if (document.location.search) {
   buildSutta(document.location.search.replace("?", "").replace(/\s/g, "").replace(/%20/g, ""));
 } else {
-  suttaArea.innerHTML = `<div class="instructions">
+  suttaArea.innerHTML = `
+<div class="instructions">
   <p>Citations must exactly match those found on SuttaCentral.net. No spaces. Separate chapter and sutta with a period. The following books work:</p>
   <div class="lists">
-
-  <div>
-  <h2>Suttas</h2>
-  <ul>
-      <li>DN</li>      <li>MN</li>      <li>SN</li>      <li>AN</li>      <li>Kp</li>
-      <li>Dhp (exact range)</li>
-      <li>Ud</li>
-      <li>Iti (1–112)</li>
-      <li>Snp</li>      <li>Thag</li>      <li>Thig</li>
-  </ul>
-  </div><div>
-  <h2>Vinaya</h2>
-  <div class="vinaya">
-<ul>
-<li>bu-pj</li>
-<li>bu-ss</li>
-<li>bu-ay</li>
-<li>bu-np</li>
-<li>bu-pc</li>
-<li>bu-pd</li>
-<li>bu-sk</li>
-<li>bu-as</li></ul>
-<ul>
-<li>bi-pj</li>
-<li>bi-ss</li>
-<li>bi-np</li>
-<li>bi-pc</li>
-<li>bi-pd</li>
-<li>bi-sk</li>
-<li>bi-as</li>
-</ul><ul>
-<li>kd</li>
-<li>pvr</li>
-</ul>
-</div>
-  </div></div>
+      <div>
+          <h2>Suttas</h2>
+          <ul>
+              <li>DN</li>
+              <li>MN</li>
+              <li>SN</li>
+              <li>AN</li>
+              <li>Kp</li>
+              <li>Dhp (exact range)</li>
+              <li>Ud</li>
+              <li>Iti (1–112)</li>
+              <li>Snp</li>
+              <li>Thag</li>
+              <li>Thig</li>
+          </ul>
+      </div>
+      <div>
+          <h2>Vinaya</h2>
+          <div class="vinaya">
+              <ul>
+                  <li>bu-pj</li>
+                  <li>bu-ss</li>
+                  <li>bu-ay</li>
+                  <li>bu-np</li>
+                  <li>bu-pc</li>
+                  <li>bu-pd</li>
+                  <li>bu-sk</li>
+                  <li>bu-as</li>
+              </ul>
+              <ul>
+                  <li>bi-pj</li>
+                  <li>bi-ss</li>
+                  <li>bi-np</li>
+                  <li>bi-pc</li>
+                  <li>bi-pd</li>
+                  <li>bi-sk</li>
+                  <li>bi-as</li>
+              </ul>
+              <ul>
+                  <li>kd</li>
+                  <li>pvr</li>
+              </ul>
+          </div>
+      </div>
+  </div>
   <p>Suttas that are part of a series require that you enter the exact series.</p>
-</div>`;
+</div>
+`;
 }
 
 function toggleThePali() {
