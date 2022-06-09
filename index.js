@@ -129,16 +129,16 @@ if (document.location.search) {
 <li>Bhikkhu Vibhaṅga: Sekhiyā (bu-sk)</li>
 <li>Bhikkhu Vibhaṅga: Adhikarana-samatha (bu-as)</li></ul>
 <ul>
-<li>bi-pj</li>
-<li>bi-ss</li>
-<li>bi-np</li>
-<li>bi-pc</li>
-<li>bi-pd</li>
-<li>bi-sk</li>
-<li>bi-as</li>
+<li>Bhikkhunī Vibhaṅga: Pārājikā (bi-pj)</li>
+<li>Bhikkhunī Vibhaṅga: Saṅghādisesā (bi-ss)</li>
+<li>Bhikkhunī Vibhaṅga: Nissaggiyā-pācittiyā (bi-np)</li>
+<li>Bhikkhunī Vibhaṅga: Pācittiyā (bu-pc)(bi-pc)</li>
+<li>Bhikkhunī Vibhaṅga: Pāṭidesaniyā (bi-pd)</li>
+<li>Bhikkhunī Vibhaṅga: Sekhiyā (bi-sk)</li>
+<li>Bhikkhunī Vibhaṅga: Adhikarana-samatha (bi-as)</li>
 </ul><ul>
-<li>kd</li>
-<li>pvr</li>
+<li>Khandhakas (kd)</li>
+<li>Parivāra(pvr)</li>
 </ul>
 </div>
   </div></div>
