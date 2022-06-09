@@ -113,15 +113,15 @@ if (document.location.search) {
   <ul>
       <li><span class="abbr">dn</span> Dīgha-nikāya</li>
       <li><span class="abbr">mn</span> Majjhima-nikāya</li>
-      <li><span class="abbr">sn</span> Saṃyutta-nikāya</li>
+      <li><span class="abbr">sn</span> Saṁyutta-nikāya</li>
       <li><span class="abbr">an</span> Aṅguttara-nikāya</li>
       <li><span class="abbr">an</span> Khuddakapāṭha</li>
-      <li><span class="abbr">dhp</span> Dhammapāda</li>
+      <li><span class="abbr">dhp</span> Dhammapada</li>
       <li><span class="abbr">ud</span> Udāna</li>
       <li><span class="abbr">iti</span> Itivuttaka (1–112)</li>
       <li><span class="abbr">snp</span> Sutta-nipāta</li>
       <li><span class="abbr">thag</span> Theragāthā</li>
-      <li><span class="abbr">thig</span> Therigāthā</li>
+      <li><span class="abbr">thig</span> Therīgāthā</li>
   </ul>
   </div><div>
   <h2>Vinaya</h2>
@@ -134,7 +134,7 @@ if (document.location.search) {
 <li><span class="abbr">bu-ay</span> Aniyatā</li>
 <li><span class="abbr">bu-np</span> Nissaggiyā-pācittiyā</li>
 <li><span class="abbr">bu-pc</span> Pācittiyā</li>
-<li><span class="abbr">bu-pd</span> Pāṭidesaniyā</li>
+<li><span class="abbr">bu-pd</span> Pāṭidesanīyā</li>
 <li><span class="abbr">bu-sk</span> Sekhiyā</li>
 <li><span class="abbr">bu-as</span> Adhikarana-samatha</li>
 </ul>
@@ -145,7 +145,7 @@ if (document.location.search) {
 <li><span class="abbr">bi-ss</span> Saṅghādisesā</li>
 <li><span class="abbr">bi-np</span> Nissaggiyā-pācittiyā</li>
 <li><span class="abbr">bi-pc</span> Pācittiyā</li>
-<li><span class="abbr">bi-pd</span> Pāṭidesaniyā</li>
+<li><span class="abbr">bi-pd</span> Pāṭidesanīyā</li>
 <li><span class="abbr">bi-sk</span> Sekhiyā</li>
 <li><span class="abbr">bi-as</span> Adhikarana-samatha</li>
 </ul>
