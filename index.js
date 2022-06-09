@@ -116,7 +116,7 @@ if (document.location.search) {
       <li><span class="abbr">sn</span> Saṃyutta-nikāya</li>
       <li><span class="abbr">an</span> Aṅguttara-nikāya</li>
       <li><span class="abbr">an</span> Khuddakapāṭha</li>
-      <li><span class="abbr">dhp</span> Dhammapāda (exact range)</li>
+      <li><span class="abbr">dhp</span> Dhammapāda</li>
       <li><span class="abbr">ud</span> Udāna</li>
       <li><span class="abbr">iti</span> Itivuttaka (1–112)</li>
       <li><span class="abbr">snp</span> Sutta-nipāta</li>
@@ -157,7 +157,8 @@ if (document.location.search) {
 </div>
   </div></div>
 
-  <p>Suttas that are part of a series require that you enter the exact series.</p>
+  <p>Suttas that are part of a series require that you enter the exact series. 
+  (Such as Dhp and some SN and AN.)</p>
 </div>
 `;
 }
