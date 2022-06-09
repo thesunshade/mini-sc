@@ -45,6 +45,7 @@ p {
   padding: 1px 4px;
   border: solid 0px;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .instructions ul li {
