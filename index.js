@@ -110,24 +110,24 @@ if (document.location.search) {
   <div>
   <h2>Suttas</h2>
   <ul>
-      <li>DN</li>      <li>MN</li>      <li>SN</li>      <li>AN</li>      <li>Kp</li>
-      <li>Dhp (exact range)</li>
-      <li>Ud</li>
-      <li>Iti (1–112)</li>
-      <li>Snp</li>      <li>Thag</li>      <li>Thig</li>
+      <li>Dīgha-nikāya (dn)</li>      <li>Majjhima-nikāya (mn)</li>      <li>Saṃyutta-nikāya (sn)</li>      <li>Aṅguttara-nikāya (an)</li>      <li>Kp</li>
+      <li>Dhammapāda (dhp exact range)</li>
+      <li>Udāna (ud)</li>
+      <li>Itivuttaka (iti 1–112)</li>
+      <li>Sutta-nipāta (snp)</li>      <li>Theragāthā (thag)</li>      <li>Therigāthā (thig)</li>
   </ul>
   </div><div>
   <h2>Vinaya</h2>
   <div class="vinaya">
 <ul>
-<li>bu-pj</li>
-<li>bu-ss</li>
-<li>bu-ay</li>
-<li>bu-np</li>
-<li>bu-pc</li>
-<li>bu-pd</li>
-<li>bu-sk</li>
-<li>bu-as</li></ul>
+<li>Bhikkhu Vibhaṅga: Pārājikā (bu-pj)</li>
+<li>Bhikkhu Vibhaṅga: Saṅghādisesā (bu-ss)</li>
+<li>Bhikkhu Vibhaṅga: Aniyatā (bu-ay)</li>
+<li>Bhikkhu Vibhaṅga: Nissaggiyā-pācittiyā (bu-np)</li>
+<li>Bhikkhu Vibhaṅga: Pācittiyā (bu-pc)</li>
+<li>Bhikkhu Vibhaṅga: Pāṭidesaniyā (bu-pd)</li>
+<li>Bhikkhu Vibhaṅga: Sekhiyā (bu-sk)</li>
+<li>Bhikkhu Vibhaṅga: Adhikarana-samatha (bu-as)</li></ul>
 <ul>
 <li>bi-pj</li>
 <li>bi-ss</li>
