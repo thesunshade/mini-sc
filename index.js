@@ -104,7 +104,6 @@ function buildSutta(slug) {
 if (document.location.search) {
   buildSutta(document.location.search.replace("?", "").replace(/\s/g, "").replace(/%20/g, ""));
 } else {
-
   suttaArea.innerHTML = `<div class="instructions">
   <p>Citations must exactly match those found on SuttaCentral.net. No spaces. Separate chapter and sutta with a period. The following collections work:</p>
   <div class="lists">
@@ -112,35 +111,48 @@ if (document.location.search) {
   <div>
   <h2>Suttas</h2>
   <ul>
-      <li>Dīgha-nikāya (dn)</li>      <li>Majjhima-nikāya (mn)</li>      <li>Saṃyutta-nikāya (sn)</li>      <li>Aṅguttara-nikāya (an)</li>      <li>Kp</li>
-      <li>Dhammapāda (dhp exact range)</li>
-      <li>Udāna (ud)</li>
-      <li>Itivuttaka (iti 1–112)</li>
-      <li>Sutta-nipāta (snp)</li>      <li>Theragāthā (thag)</li>      <li>Therigāthā (thig)</li>
+      <li><span class="abbr">dn</span> Dīgha-nikāya</li>
+      <li><span class="abbr">mn</span> Majjhima-nikāya</li>
+      <li><span class="abbr">sn</span> Saṃyutta-nikāya</li>
+      <li><span class="abbr">an</span> Aṅguttara-nikāya</li>
+      <li><span class="abbr">an</span> Khuddakapāṭha</li>
+      <li><span class="abbr">dhp</span> Dhammapāda (exact range)</li>
+      <li><span class="abbr">ud</span> Udāna</li>
+      <li><span class="abbr">iti</span> Itivuttaka (1–112)</li>
+      <li><span class="abbr">snp</span> Sutta-nipāta</li>
+      <li><span class="abbr">thag</span> Theragāthā</li>
+      <li><span class="abbr">thig</span> Therigāthā</li>
   </ul>
   </div><div>
   <h2>Vinaya</h2>
   <div class="vinaya">
+  <div>
+  <h3>Bhikkhu</h3>
 <ul>
-<li>Bhikkhu Vibhaṅga: Pārājikā (bu-pj)</li>
-<li>Bhikkhu Vibhaṅga: Saṅghādisesā (bu-ss)</li>
-<li>Bhikkhu Vibhaṅga: Aniyatā (bu-ay)</li>
-<li>Bhikkhu Vibhaṅga: Nissaggiyā-pācittiyā (bu-np)</li>
-<li>Bhikkhu Vibhaṅga: Pācittiyā (bu-pc)</li>
-<li>Bhikkhu Vibhaṅga: Pāṭidesaniyā (bu-pd)</li>
-<li>Bhikkhu Vibhaṅga: Sekhiyā (bu-sk)</li>
-<li>Bhikkhu Vibhaṅga: Adhikarana-samatha (bu-as)</li></ul>
+<li><span class="abbr">bu-pj</span> Pārājikā</li>
+<li><span class="abbr">bu-ss</span> Saṅghādisesā</li>
+<li><span class="abbr">bu-ay</span> Aniyatā</li>
+<li><span class="abbr">bu-np</span> Nissaggiyā-pācittiyā</li>
+<li><span class="abbr">bu-pc</span> Pācittiyā</li>
+<li><span class="abbr">bu-pd</span> Pāṭidesaniyā</li>
+<li><span class="abbr">bu-sk</span> Sekhiyā</li>
+<li><span class="abbr">bu-as</span> Adhikarana-samatha</li>
+</ul>
+</div><div>
+<h3>Bhikkhuni</h3>
 <ul>
-<li>Bhikkhunī Vibhaṅga: Pārājikā (bi-pj)</li>
-<li>Bhikkhunī Vibhaṅga: Saṅghādisesā (bi-ss)</li>
-<li>Bhikkhunī Vibhaṅga: Nissaggiyā-pācittiyā (bi-np)</li>
-<li>Bhikkhunī Vibhaṅga: Pācittiyā (bu-pc)(bi-pc)</li>
-<li>Bhikkhunī Vibhaṅga: Pāṭidesaniyā (bi-pd)</li>
-<li>Bhikkhunī Vibhaṅga: Sekhiyā (bi-sk)</li>
-<li>Bhikkhunī Vibhaṅga: Adhikarana-samatha (bi-as)</li>
-</ul><ul>
-<li>Khandhakas (kd)</li>
-<li>Parivāra(pvr)</li>
+<li><span class="abbr">bi-pj</span> Pārājikā</li>
+<li><span class="abbr">bi-ss</span> Saṅghādisesā</li>
+<li><span class="abbr">bi-np</span> Nissaggiyā-pācittiyā</li>
+<li><span class="abbr">bi-pc</span> Pācittiyā</li>
+<li><span class="abbr">bi-pd</span> Pāṭidesaniyā</li>
+<li><span class="abbr">bi-sk</span> Sekhiyā</li>
+<li><span class="abbr">bi-as</span> Adhikarana-samatha</li>
+</ul>
+</div>
+<ul>
+<li><span class="abbr">kd</span> Khandhakas</li>
+<li><span class="abbr">pvr</span> Parivāra</li>
 </ul>
 </div>
   </div></div>
