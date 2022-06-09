@@ -185,3 +185,10 @@ function toggleThePali() {
     }
   });
 }
+
+const abbreviations = document.querySelectorAll("span.abbr");
+abbreviations.forEach(book => {
+  book.addEventListener("click", e => {
+    citation.value = e.target.innerHTML;
+  });
+});
