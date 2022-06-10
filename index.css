@@ -191,6 +191,11 @@ header ul li {
   }
 }
 
+.byline {
+  text-align: right;
+  font-style: italic;
+}
+
 br {
   line-height: 0px;
 }

@@ -9,6 +9,8 @@ homeButton.addEventListener("click", () => {
 
 const form = document.getElementById("form");
 const citation = document.getElementById("citation");
+citation.focus();
+
 form.addEventListener("submit", e => {
   e.preventDefault();
   // to add hard breaks in verses, add:
@@ -37,7 +39,7 @@ function buildSutta(slug) {
       slug = slug.replace("bi-", "bi-vb-");
     }
   }
-  console.log(slug);
+
   let html = `<div class="button-area"><button id="hide-pali" class="hide-button">Toggle Pali</button></div>`;
 
   const contentResponse = fetch(`https://suttacentral.net/api/bilarasuttas/${slug}/${translator}?lang=en`).then(
@@ -63,7 +65,11 @@ function buildSutta(slug) {
         }</span><span class="eng-lang" lang="en">${translation_text[segment]}</span></span>${closeHtml}\n\n`;
       });
       const scLink = `<p class="sc-link"><a href="https://suttacentral.net/${slug}/en/sujato">On SuttaCentral.net</a></p>`;
-      suttaArea.innerHTML = scLink + html;
+
+      let translatorName = "Bhikkhu Sujato";
+      if (translator === "brahmali") translatorName = "Bhikkhu Brahmali";
+      const translatorByline = `<div class="byline">Translated by ${translatorName}</div>`;
+      suttaArea.innerHTML = scLink + html + translatorByline;
       document.title = `${suttaplex.bilara_root_text.title}: ${suttaplex.bilara_translated_text.title} — Bhikkhu Sujato — SuttaCentral`;
 
       toggleThePali();
@@ -94,7 +100,6 @@ function buildSutta(slug) {
     <br><br>
     Note: <br>
     Suttas that are part of a series require that you enter the exact series. For example, <code>an1.1</code> will not work, but <code>an1.1-10</code> will.<br>
-    Citations cannot contain spaces.<br>
     Chapter and sutta number should be separated by a period.<br>
     Only dn, mn, sn, and an are valid books.`;
     });
@@ -105,7 +110,7 @@ if (document.location.search) {
   buildSutta(document.location.search.replace("?", "").replace(/\s/g, "").replace(/%20/g, ""));
 } else {
   suttaArea.innerHTML = `<div class="instructions">
-  <p>Citations must exactly match those found on SuttaCentral.net. No spaces. Separate chapter and sutta with a period. The following collections work. Click them to add to input box.</p>
+  <p>Citations must exactly match those found on SuttaCentral.net. Separate chapter and sutta with a period. The following collections work. Click them to add to input box.</p>
   <div class="lists">
 
   <div class="suttas">
@@ -190,5 +195,7 @@ const abbreviations = document.querySelectorAll("span.abbr");
 abbreviations.forEach(book => {
   book.addEventListener("click", e => {
     citation.value = e.target.innerHTML;
+    // form.input.setSelectionRange(10, 10);
+    citation.focus();
   });
 });
