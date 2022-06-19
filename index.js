@@ -120,7 +120,7 @@ if (document.location.search) {
       <li><span class="abbr">mn</span> Majjhima-nikāya</li>
       <li><span class="abbr">sn</span> Saṁyutta-nikāya</li>
       <li><span class="abbr">an</span> Aṅguttara-nikāya</li>
-      <li><span class="abbr">an</span> Khuddakapāṭha</li>
+      <li><span class="abbr">kp</span> Khuddakapāṭha</li>
       <li><span class="abbr">dhp</span> Dhammapada</li>
       <li><span class="abbr">ud</span> Udāna</li>
       <li><span class="abbr">iti</span> Itivuttaka (1–112)</li>
