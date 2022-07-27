@@ -16,10 +16,10 @@ form.addEventListener("submit", e => {
   // to add hard breaks in verses, add:
   // document.location.search = "?" + citation.value.replace(/\s/g, "");
   buildSutta(citation.value.replace(/\s/g, ""));
-  history.pushState({ page: citation.value.replace(/\s/g, "") }, "", `?${citation.value.replace(/\s/g, "")}`);
+  history.pushState({ page: citation.value.replace(/\s/g, "") }, "", `?q=${citation.value.replace(/\s/g, "")}`);
 });
 
-citation.value = document.location.search.replace("?", "").replace(/%20/g, "").replace(/\s/g, "");
+citation.value = document.location.search.replace("?q=", "").replace(/%20/g, "").replace(/\s/g, "");
 
 function buildSutta(slug) {
   let translator = "sujato";
@@ -75,7 +75,7 @@ function buildSutta(slug) {
       toggleThePali();
 
       next.innerHTML = suttaplex.root_text.next.name
-        ? `<a href="?${suttaplex.root_text.next.uid}">${suttaplex.root_text.next.name}<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="body_1" width="15" height="11">
+        ? `<a href="?q=${suttaplex.root_text.next.uid}">${suttaplex.root_text.next.name}<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="body_1" width="15" height="11">
 
       <g transform="matrix(0.021484375 0 0 0.021484375 2 -0)">
         <g>
@@ -85,7 +85,7 @@ function buildSutta(slug) {
       </svg></a>`
         : "";
       previous.innerHTML = suttaplex.root_text.previous.name
-        ? `<a href="?${suttaplex.root_text.previous.uid}"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="body_1" width="15" height="11">
+        ? `<a href="?q=${suttaplex.root_text.previous.uid}"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="body_1" width="15" height="11">
 
       <g transform="matrix(0.021484375 0 0 0.021484375 2 -0)">
         <g>
@@ -107,7 +107,7 @@ function buildSutta(slug) {
 
 // initialize the whole app
 if (document.location.search) {
-  buildSutta(document.location.search.replace("?", "").replace(/\s/g, "").replace(/%20/g, ""));
+  buildSutta(document.location.search.replace("?q=", "").replace(/\s/g, "").replace(/%20/g, ""));
 } else {
   suttaArea.innerHTML = `<div class="instructions">
   <p>Citations must exactly match those found on SuttaCentral.net. Separate chapter and sutta with a period. The following collections work. Click them to add to input box.</p>
