@@ -1,5 +1,25 @@
+@font-face {
+  font-family: "Robto Serif";
+  src: url("RobotoSerif-Regular.ttf");
+}
+
+:root {
+  --off-white: rgb(221, 221, 221);
+  --light-off-white: rgb(241, 241, 241);
+  --off-black: rgb(4, 1, 19);
+  --dark-gray: #5a5a5a;
+  --light-gray: #8f8f8f;
+  --dark-blue: #42426a;
+  --blue: #3434be;
+}
+
 body {
   margin: 1rem 3rem;
+  background-color: var(--light-off-white);
+  font-family: "Robto Serif", serif;
+}
+body.dark {
+  background-color: var(--off-black);
 }
 
 #form {
@@ -7,45 +27,57 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: baseline;
 }
 
 #citation {
   border-radius: 0;
   border: 1px solid;
+  background-color: var(--off-white);
+  color: var(--dark-gray);
+}
+.dark #citation {
+  background-color: var(--dark-blue);
+  color: var(--off-white);
 }
 
 #citation:focus {
-  background-color: palegoldenrod;
+  background-color: var(--off-white);
+  color: var(--off-black);
   outline: none;
+}
+.dark #citation:focus {
+  background-color: var(--off-white);
+  color: var(--off-black);
+  border-color: var(--off-white);
 }
 
 .go-button {
   border-radius: 0;
-  border: 1px solid;
+  border: 1px solid var(--dark-gray);
   border-left: 0px;
 }
+.dark .go-button {
+  border-color: var(--off-white);
+  background-color: var(--dark-blue);
+  color: var(--off-white);
+}
+.dark .go-button:hover {
+  background-color: var(--light-gray);
+}
 
-.home-button {
+.icon-button {
   border: none;
   background: none;
   margin-left: 5px;
 }
 
-.home-button svg {
+.icon-button svg {
   margin-top: 3px;
 }
 
 p {
   margin-bottom: 1.5rem;
-}
-
-.abbr {
-  font-family: monospace;
-  background-color: rgb(220, 220, 231);
-  padding: 1px 4px;
-  border: solid 0px;
-  border-radius: 5px;
-  cursor: pointer;
 }
 
 .instructions ul li {
@@ -68,27 +100,37 @@ p {
   font-size: 1rem;
   margin-top: 0rem;
   margin-bottom: 0.1rem;
-  margin-left: 2rem;
+  margin-left: 0rem;
 }
 
 .lists {
   display: flex;
   flex-direction: row;
   column-gap: 0rem;
+  font-size: 85%;
 }
 
 .suttas {
-  width: 12rem;
+  width: 11rem;
 }
-
-/* * {
-  border: solid 1px green;
-} */
 
 .vinaya {
   display: flex;
   flex-direction: row;
-  gap: 1.5rem;
+  gap: 1.2rem;
+}
+
+.abbr {
+  font-family: monospace;
+  background-color: rgb(220, 220, 231);
+  padding: 1px 4px;
+  border: solid 0px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 105%;
+}
+.dark .abbr {
+  background-color: var(--dark-blue);
 }
 
 @media only screen and (max-width: 730px) {
@@ -109,34 +151,68 @@ span.eng-lang {
   display: block;
 }
 
-p span.pli-lang,
-dt span.pli-lang,
-li span.pli-lang,
-dd span.pli-lang {
-  color: gray;
+p,
+dt,
+li,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: var(--off-black);
+}
+.dark p,
+.dark dt,
+.dark li,
+.dark dd,
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5 {
+  color: var(--off-white);
+}
+
+p .pli-lang,
+dt .pli-lang,
+li .pli-lang,
+dd .pli-lang,
+h1 .pli-lang,
+h2 .pli-lang,
+h3 .pli-lang,
+h4 .pli-lang,
+h5 .pli-lang {
   font-family: sans-serif;
-  font-size: 1rem;
+  color: var(--dark-gray);
+}
+.dark p .pli-lang,
+.dark dt .pli-lang,
+.dark li .pli-lang,
+.dark dd .pli-lang,
+.dark h1 .pli-lang,
+.dark h2 .pli-lang,
+.dark h3 .pli-lang,
+.dark h4 .pli-lang,
+.dark h5 .pli-lang {
+  color: var(--light-gray);
+}
+
+a {
+  color: var(--blue);
+}
+.dark a {
+  color: rgb(122, 122, 249);
 }
 
 dt {
   font-weight: bold;
 }
 
-p span.pli-lang,
-h1 span.pli-lang,
-h2 span.pli-lang,
-h3 span.pli-lang,
-h4 span.pli-lang,
-h5 span.pli-lang {
-  color: #5a5a5a;
-  font-family: sans-serif;
-}
-
 .button-area {
   position: fixed;
   right: 10px;
   top: 10px;
-  /* text-align: center; */
 }
 
 #sutta {
@@ -145,13 +221,20 @@ h5 span.pli-lang {
   line-height: 1.5;
 }
 
-#sutta.hide-pali p span.pli-lang,
+.hide-pali p .pli-lang,
+.hide-pali h2 .pli-lang,
+.hide-pali h3 .pli-lang,
+.hide-pali h4 .pli-lang,
+.hide-pali li .pli-lang {
+  display: none !important;
+}
+/* #sutta.hide-pali p span.pli-lang,
 #sutta.hide-pali h2 span.pli-lang,
 #sutta.hide-pali h3 span.pli-lang,
 #sutta.hide-pali h4 span.pli-lang,
 #sutta.hide-pali li span.pli-lang {
   display: none !important;
-}
+} */
 
 #sutta.hide-pali p span.eng-lang {
   display: inline !important;
@@ -194,6 +277,7 @@ header ul li {
 .byline {
   text-align: right;
   font-style: italic;
+  font-size: 0.8rem;
 }
 
 br {
@@ -218,6 +302,12 @@ br {
   top: -3px;
   filter: opacity(100%);
 }
+.dark .links-area a {
+  filter: invert(50%);
+}
+.dark .links-area a:hover {
+  filter: invert(200%);
+}
 
 .navigation {
   display: flex;
@@ -225,10 +315,10 @@ br {
   justify-content: space-between;
 }
 
-.navigation a {
+a {
   text-decoration: none;
 }
-.navigation a:hover {
+a:hover {
   text-decoration: underline;
 }
 @media only screen and (max-width: 475px) {
@@ -236,4 +326,23 @@ br {
     flex-direction: column !important;
     row-gap: 1rem;
   }
+}
+
+.hide-button {
+  background-color: var(--off-white);
+  color: var(--off-black);
+  border: solid 2px var(--dark-gray);
+  padding-bottom: 3px;
+}
+.hide-button:hover {
+  background-color: var(--dark-blue);
+  color: var(--off-white);
+}
+.dark .hide-button {
+  background-color: var(--dark-blue);
+  color: var(--off-white);
+}
+.dark .hide-button:hover {
+  background-color: var(--blue);
+  color: var(--off-white);
 }
