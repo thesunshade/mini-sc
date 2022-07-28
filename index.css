@@ -228,13 +228,6 @@ dt {
 .hide-pali li .pli-lang {
   display: none !important;
 }
-/* #sutta.hide-pali p span.pli-lang,
-#sutta.hide-pali h2 span.pli-lang,
-#sutta.hide-pali h3 span.pli-lang,
-#sutta.hide-pali h4 span.pli-lang,
-#sutta.hide-pali li span.pli-lang {
-  display: none !important;
-} */
 
 #sutta.hide-pali p span.eng-lang {
   display: inline !important;
