@@ -5,16 +5,6 @@ const bodyTag = document.querySelector("body");
 const previous = document.getElementById("previous");
 const next = document.getElementById("next");
 
-document.onkeyup = function (e) {
-  console.log(e);
-  if (e.altKey && e.key == "q") {
-    alert("q key was pressed");
-    const bodyElement = document.querySelector("body");
-    console.log(bodyElement);
-    bodyElement.style.background = "blue";
-  }
-};
-
 homeButton.addEventListener("click", () => {
   document.location.search = "";
 });
