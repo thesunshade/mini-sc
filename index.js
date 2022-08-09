@@ -87,6 +87,11 @@ function buildSutta(slug) {
         }
         let [openHtml, closeHtml] = html_text[segment].split(/{}/);
         // openHtml = openHtml.replace(/^<span class='verse-line'>/, "<br><span class='verse-line'>");
+
+        if (window.addBreaks === true) {
+          openHtml = openHtml.replace(/^<span class='verse-line'>/, "<br><span class='verse-line'>");
+        }
+
         html += `${openHtml}<span class="segment" id ="${segment}"><span class="pli-lang" lang="pi">${
           root_text[segment] ? root_text[segment] : ""
         }</span><span class="eng-lang" lang="en">${translation_text[segment]}</span></span>${closeHtml}\n\n`;
