@@ -33,8 +33,6 @@ citation.focus();
 
 form.addEventListener("submit", e => {
   e.preventDefault();
-  // to add hard breaks in verses, add:
-  // document.location.search = "?" + citation.value.replace(/\s/g, "");
   if (citation.value) {
     buildSutta(citation.value.replace(/\s/g, ""));
     history.pushState({ page: citation.value.replace(/\s/g, "") }, "", `?q=${citation.value.replace(/\s/g, "")}`);
@@ -44,7 +42,14 @@ form.addEventListener("submit", e => {
 citation.value = document.location.search.replace("?q=", "").replace(/%20/g, "").replace(/\s/g, "");
 
 function buildSutta(slug) {
-  let translator = "sujato";
+  let translator = "";
+  let slugArray = slug.split("&");
+  slug = slugArray[0];
+  if (slugArray[1]) {
+    translator = slugArray[1];
+  } else {
+    translator = "sujato";
+  }
   slug = slug.toLowerCase();
 
   if (slug.match(/bu|bi|kd|pvr/)) {
@@ -118,12 +123,12 @@ function buildSutta(slug) {
         : "";
     })
     .catch(error => {
-      suttaArea.innerHTML = `Sorry, "${decodeURIComponent(slug)}" is not a valid sutta citation.
+      suttaArea.innerHTML = `<p>Sorry, "${decodeURIComponent(slug)}" is not a valid sutta citation.
     <br><br>
     Note: <br>
     Suttas that are part of a series require that you enter the exact series. For example, <code>an1.1</code> will not work, but <code>an1.1-10</code> will.<br>
     Chapter and sutta number should be separated by a period.<br>
-    Only dn, mn, sn, and an are valid books.`;
+    Only dn, mn, sn, and an are valid books.</p>`;
     });
 }
 
