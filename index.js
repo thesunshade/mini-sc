@@ -9,6 +9,14 @@ homeButton.addEventListener("click", () => {
   document.location.search = "";
 });
 
+document.onkeyup = function (e) {
+  if (e.altKey && e.key == "q") {
+    const bodyElement = document.querySelector("body");
+    bodyElement.style.background = "blue";
+    window.addBreaks = true;
+  }
+};
+
 if (localStorage.theme) {
   if (localStorage.theme === "light") {
     bodyTag.classList.remove("dark");
@@ -96,11 +104,11 @@ function buildSutta(slug) {
           root_text[segment] ? root_text[segment] : ""
         }</span><span class="eng-lang" lang="en">${translation_text[segment]}</span></span>${closeHtml}\n\n`;
       });
-      const scLink = `<p class="sc-link"><a href="https://suttacentral.net/${slug}/en/sujato">On SuttaCentral.net</a></p>`;
+      const scLink = `<p class="sc-link"><a href="https://suttacentral.net/${slug}/en/${translator}">On SuttaCentral.net</a></p>`;
 
       const translatorByline = `<div class="byline"><p>Translated by ${suttaplex.translation.author}</p></div>`;
       suttaArea.innerHTML = scLink + html + translatorByline;
-      document.title = `${suttaplex.bilara_root_text.title}: ${suttaplex.bilara_translated_text.title} — Bhikkhu Sujato — SuttaCentral`;
+      document.title = `${suttaplex.bilara_root_text.title}: ${suttaplex.bilara_translated_text.title}`;
 
       toggleThePali();
 
