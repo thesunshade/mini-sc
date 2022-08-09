@@ -93,9 +93,7 @@ function buildSutta(slug) {
       });
       const scLink = `<p class="sc-link"><a href="https://suttacentral.net/${slug}/en/sujato">On SuttaCentral.net</a></p>`;
 
-      let translatorName = "Bhikkhu Sujato";
-      if (translator === "brahmali") translatorName = "Bhikkhu Brahmali";
-      const translatorByline = `<div class="byline"><p>Translated by ${translatorName}</p></div>`;
+      const translatorByline = `<div class="byline"><p>Translated by ${suttaplex.translation.author}</p></div>`;
       suttaArea.innerHTML = scLink + html + translatorByline;
       document.title = `${suttaplex.bilara_root_text.title}: ${suttaplex.bilara_translated_text.title} — Bhikkhu Sujato — SuttaCentral`;
 
