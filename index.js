@@ -108,7 +108,7 @@ function buildSutta(slug) {
 
       const translatorByline = `<div class="byline"><p>Translated by ${suttaplex.translation.author}</p></div>`;
       suttaArea.innerHTML = scLink + html + translatorByline;
-      document.title = `${suttaplex.bilara_root_text.title}: ${suttaplex.bilara_translated_text.title}`;
+      document.title = `${suttaplex.suttaplex.acronym} ${suttaplex.bilara_root_text.title}: ${suttaplex.bilara_translated_text.title}`;
 
       toggleThePali();
 
