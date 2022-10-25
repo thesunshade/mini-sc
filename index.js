@@ -5,6 +5,64 @@ const bodyTag = document.querySelector("body");
 const previous = document.getElementById("previous");
 const next = document.getElementById("next");
 
+const welcomeText = `<div class="instructions">
+<p>Citations must exactly match those found on SuttaCentral.net. Separate chapter and sutta with a period. The following collections work. Click them to add to input box.</p>
+<div class="lists">
+
+<div class="suttas">
+<h2>Suttas</h2>
+<ul>
+    <li><span class="abbr">dn</span> Dīgha-nikāya</li>
+    <li><span class="abbr">mn</span> Majjhima-nikāya</li>
+    <li><span class="abbr">sn</span> Saṁyutta-nikāya</li>
+    <li><span class="abbr">an</span> Aṅguttara-nikāya</li>
+    <li><span class="abbr">kp</span> Khuddakapāṭha</li>
+    <li><span class="abbr">dhp</span> Dhammapada</li>
+    <li><span class="abbr">ud</span> Udāna</li>
+    <li><span class="abbr">iti</span> Itivuttaka (1–112)</li>
+    <li><span class="abbr">snp</span> Sutta-nipāta</li>
+    <li><span class="abbr">thag</span> Theragāthā</li>
+    <li><span class="abbr">thig</span> Therīgāthā</li>
+</ul>
+</div><div>
+<h2>Vinaya</h2>
+<div class="vinaya">
+<div>
+<h3>Bhikkhu</h3>
+<ul>
+<li><span class="abbr">bu-pj</span> Pārājikā</li>
+<li><span class="abbr">bu-ss</span> Saṅghādisesā</li>
+<li><span class="abbr">bu-ay</span> Aniyatā</li>
+<li><span class="abbr">bu-np</span> Nissaggiyā-pācittiyā</li>
+<li><span class="abbr">bu-pc</span> Pācittiyā</li>
+<li><span class="abbr">bu-pd</span> Pāṭidesanīyā</li>
+<li><span class="abbr">bu-sk</span> Sekhiyā</li>
+<li><span class="abbr">bu-as</span> Adhikarana-samatha</li>
+</ul>
+</div><div>
+<h3>Bhikkhuni</h3>
+<ul>
+<li><span class="abbr">bi-pj</span> Pārājikā</li>
+<li><span class="abbr">bi-ss</span> Saṅghādisesā</li>
+<li><span class="abbr">bi-np</span> Nissaggiyā-pācittiyā</li>
+<li><span class="abbr">bi-pc</span> Pācittiyā</li>
+<li><span class="abbr">bi-pd</span> Pāṭidesanīyā</li>
+<li><span class="abbr">bi-sk</span> Sekhiyā</li>
+<li><span class="abbr">bi-as</span> Adhikarana-samatha</li>
+</ul>
+</div>
+<ul>
+<li><span class="abbr">kd</span> Khandhakas</li>
+<li><span class="abbr">pvr</span> Parivāra</li>
+</ul>
+</div>
+</div></div>
+
+<p>Suttas that are part of a series require that you enter the exact series. 
+(Such as Dhp and some SN and AN.)</p>
+</div>
+`;
+
 homeButton.addEventListener("click", () => {
   document.location.search = "";
 });
@@ -135,11 +193,15 @@ function buildSutta(slug) {
     })
     .catch(error => {
       suttaArea.innerHTML = `<p>Sorry, "${decodeURIComponent(slug)}" is not a valid sutta citation.
+    <br>
+    Try on <a href="https://suttacentral.net/${decodeURIComponent(
+      slug
+    )}/en/sujato" rel="noreferrer" target="_blank">SuttaCentral.net</a> or the <a href="https://sutta.readingfaithfully.org/?q=${decodeURIComponent(
+        slug
+      )}" rel="noreferrer" target="_blank">Citation Helper</a>
     <br><br>
-    Note: <br>
-    Suttas that are part of a series require that you enter the exact series. For example, <code>an1.1</code> will not work, but <code>an1.1-10</code> will.<br>
-    Chapter and sutta number should be separated by a period.<br>
-    Only dn, mn, sn, and an are valid books.</p>`;
+    Note: Suttas that are part of a series require that you enter the exact series. For example, <code>an1.1</code> will not work, but <code>an1.1-10</code> will.<br>
+    ${welcomeText}`;
     });
 }
 
@@ -147,63 +209,7 @@ function buildSutta(slug) {
 if (document.location.search) {
   buildSutta(document.location.search.replace("?q=", "").replace(/\s/g, "").replace(/%20/g, ""));
 } else {
-  suttaArea.innerHTML = `<div class="instructions">
-  <p>Citations must exactly match those found on SuttaCentral.net. Separate chapter and sutta with a period. The following collections work. Click them to add to input box.</p>
-  <div class="lists">
-
-  <div class="suttas">
-  <h2>Suttas</h2>
-  <ul>
-      <li><span class="abbr">dn</span> Dīgha-nikāya</li>
-      <li><span class="abbr">mn</span> Majjhima-nikāya</li>
-      <li><span class="abbr">sn</span> Saṁyutta-nikāya</li>
-      <li><span class="abbr">an</span> Aṅguttara-nikāya</li>
-      <li><span class="abbr">kp</span> Khuddakapāṭha</li>
-      <li><span class="abbr">dhp</span> Dhammapada</li>
-      <li><span class="abbr">ud</span> Udāna</li>
-      <li><span class="abbr">iti</span> Itivuttaka (1–112)</li>
-      <li><span class="abbr">snp</span> Sutta-nipāta</li>
-      <li><span class="abbr">thag</span> Theragāthā</li>
-      <li><span class="abbr">thig</span> Therīgāthā</li>
-  </ul>
-  </div><div>
-  <h2>Vinaya</h2>
-  <div class="vinaya">
-  <div>
-  <h3>Bhikkhu</h3>
-<ul>
-<li><span class="abbr">bu-pj</span> Pārājikā</li>
-<li><span class="abbr">bu-ss</span> Saṅghādisesā</li>
-<li><span class="abbr">bu-ay</span> Aniyatā</li>
-<li><span class="abbr">bu-np</span> Nissaggiyā-pācittiyā</li>
-<li><span class="abbr">bu-pc</span> Pācittiyā</li>
-<li><span class="abbr">bu-pd</span> Pāṭidesanīyā</li>
-<li><span class="abbr">bu-sk</span> Sekhiyā</li>
-<li><span class="abbr">bu-as</span> Adhikarana-samatha</li>
-</ul>
-</div><div>
-<h3>Bhikkhuni</h3>
-<ul>
-<li><span class="abbr">bi-pj</span> Pārājikā</li>
-<li><span class="abbr">bi-ss</span> Saṅghādisesā</li>
-<li><span class="abbr">bi-np</span> Nissaggiyā-pācittiyā</li>
-<li><span class="abbr">bi-pc</span> Pācittiyā</li>
-<li><span class="abbr">bi-pd</span> Pāṭidesanīyā</li>
-<li><span class="abbr">bi-sk</span> Sekhiyā</li>
-<li><span class="abbr">bi-as</span> Adhikarana-samatha</li>
-</ul>
-</div>
-<ul>
-<li><span class="abbr">kd</span> Khandhakas</li>
-<li><span class="abbr">pvr</span> Parivāra</li>
-</ul>
-</div>
-  </div></div>
-
-  <p>Suttas that are part of a series require that you enter the exact series. 
-  (Such as Dhp and some SN and AN.)</p>
-</div>
-`;
+  suttaArea.innerHTML = welcomeText;
 }
 
 function toggleThePali() {
