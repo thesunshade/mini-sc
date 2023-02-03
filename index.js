@@ -63,6 +63,10 @@ const welcomeText = `<div class="instructions">
 </div>
 `;
 
+console.log(
+  "When there is a citation in the url, you can put &translatorsName at the end and it will grab that translation if it exists"
+);
+
 homeButton.addEventListener("click", () => {
   document.location.search = "";
 });

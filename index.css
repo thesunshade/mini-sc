@@ -18,6 +18,7 @@ body {
   background-color: var(--light-off-white);
   font-family: "Robto Serif", serif;
 }
+
 body.dark {
   background-color: var(--off-black);
 }
@@ -36,6 +37,7 @@ body.dark {
   background-color: var(--off-white);
   color: var(--dark-gray);
 }
+
 .dark #citation {
   background-color: var(--dark-blue);
   color: var(--off-white);
@@ -46,6 +48,7 @@ body.dark {
   color: var(--off-black);
   outline: none;
 }
+
 .dark #citation:focus {
   background-color: var(--off-white);
   color: var(--off-black);
@@ -57,11 +60,13 @@ body.dark {
   border: 1px solid var(--dark-gray);
   border-left: 0px;
 }
+
 .dark .go-button {
   border-color: var(--off-white);
   background-color: var(--dark-blue);
   color: var(--off-white);
 }
+
 .dark .go-button:hover {
   background-color: var(--light-gray);
 }
@@ -96,6 +101,7 @@ p {
   margin-bottom: 0.1rem;
   margin-left: 0rem;
 }
+
 .instructions h3 {
   font-size: 1rem;
   margin-top: 0rem;
@@ -129,11 +135,13 @@ p {
   cursor: pointer;
   font-size: 105%;
 }
+
 .dark .abbr {
   background-color: var(--dark-blue);
 }
 
 @media only screen and (max-width: 730px) {
+
   .lists,
   .vinaya {
     flex-direction: column;
@@ -162,6 +170,7 @@ h4,
 h5 {
   color: var(--off-black);
 }
+
 .dark p,
 .dark dt,
 .dark li,
@@ -186,6 +195,7 @@ h5 .pli-lang {
   font-family: sans-serif;
   color: var(--dark-gray);
 }
+
 .dark p .pli-lang,
 .dark dt .pli-lang,
 .dark li .pli-lang,
@@ -201,6 +211,7 @@ h5 .pli-lang {
 a {
   color: var(--blue);
 }
+
 .dark a {
   color: rgb(122, 122, 249);
 }
@@ -261,6 +272,7 @@ header ul li {
   body {
     margin: 1rem 0.5rem;
   }
+
   .button-area {
     right: 1px;
     top: 1px;
@@ -291,13 +303,16 @@ br {
   transition: all ease 0.5s;
   filter: opacity(40%);
 }
+
 .links-area a:hover {
   top: -3px;
   filter: opacity(100%);
 }
+
 .dark .links-area a {
   filter: invert(50%);
 }
+
 .dark .links-area a:hover {
   filter: invert(200%);
 }
@@ -311,9 +326,11 @@ br {
 a {
   text-decoration: none;
 }
+
 a:hover {
   text-decoration: underline;
 }
+
 @media only screen and (max-width: 475px) {
   .navigation {
     flex-direction: column !important;
@@ -327,14 +344,17 @@ a:hover {
   border: solid 2px var(--dark-gray);
   padding-bottom: 3px;
 }
+
 .hide-button:hover {
   background-color: var(--dark-blue);
   color: var(--off-white);
 }
+
 .dark .hide-button {
   background-color: var(--dark-blue);
   color: var(--off-white);
 }
+
 .dark .hide-button:hover {
   background-color: var(--blue);
   color: var(--off-white);
