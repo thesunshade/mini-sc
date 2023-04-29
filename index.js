@@ -74,7 +74,7 @@ homeButton.addEventListener("click", () => {
 document.onkeyup = function (e) {
   if (e.altKey && e.key == "q") {
     const bodyElement = document.querySelector("body");
-    bodyElement.style.background = "blue";
+    bodyElement.style.background = "#42428f";
     window.addBreaks = true;
   }
 };
