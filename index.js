@@ -79,6 +79,14 @@ document.onkeyup = function (e) {
   }
 };
 
+document.onkeyup = function (e) {
+  if (e.target.id != "citation" && e.key == "s") {
+    console.log(e.target.id);
+    const bodyElement = document.querySelector("body");
+    bodyElement.classList.toggle("side-by-side");
+  }
+};
+
 if (localStorage.theme) {
   if (localStorage.theme === "light") {
     bodyTag.classList.remove("dark");

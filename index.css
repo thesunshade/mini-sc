@@ -359,3 +359,14 @@ a:hover {
   background-color: var(--blue);
   color: var(--off-white);
 }
+
+.side-by-side .segment {
+  display: flex;
+  flex-direction: row;
+  column-gap: 1rem;
+}
+
+.side-by-side .pli-lang,
+.side-by-side .eng-lang {
+  width: 48%;
+}
