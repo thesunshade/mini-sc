@@ -80,7 +80,8 @@ document.onkeyup = function (e) {
 };
 
 document.onkeyup = function (e) {
-  if (e.target.id != "citation" && e.key == "s") {
+  const paliHidden = document.getElementById("sutta").classList.contains("hide-pali");
+  if (!paliHidden && e.target.id != "citation" && e.key == "s") {
     console.log(e.target.id);
     const bodyElement = document.querySelector("body");
     bodyElement.classList.toggle("side-by-side");
@@ -240,6 +241,7 @@ function toggleThePali() {
     if (localStorage.paliToggle === "show") {
       suttaArea.classList.add("hide-pali");
       localStorage.paliToggle = "hide";
+      document.querySelector("body").classList.remove("side-by-side");
     } else {
       suttaArea.classList.remove("hide-pali");
       localStorage.paliToggle = "show";
