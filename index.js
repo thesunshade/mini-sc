@@ -60,6 +60,7 @@ const welcomeText = `<div class="instructions">
 
 <p>Suttas that are part of a series require that you enter the exact series. 
 (Such as Dhp and some SN and AN.)</p>
+<p>You can put the Pāli next to the English by pressing the s key</p>
 </div>
 `;
 
@@ -72,16 +73,13 @@ homeButton.addEventListener("click", () => {
 });
 
 document.onkeyup = function (e) {
+  const paliHidden = document.getElementById("sutta").classList.contains("hide-pali");
+
   if (e.altKey && e.key == "q") {
     const bodyElement = document.querySelector("body");
     bodyElement.style.background = "#42428f";
     window.addBreaks = true;
-  }
-};
-
-document.onkeyup = function (e) {
-  const paliHidden = document.getElementById("sutta").classList.contains("hide-pali");
-  if (!paliHidden && e.target.id != "citation" && e.key == "s") {
+  } else if (!paliHidden && e.target.id != "citation" && e.key == "s") {
     console.log(e.target.id);
     const bodyElement = document.querySelector("body");
     bodyElement.classList.toggle("side-by-side");
