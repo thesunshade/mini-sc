@@ -74,17 +74,30 @@ homeButton.addEventListener("click", () => {
 
 document.onkeyup = function (e) {
   const paliHidden = document.getElementById("sutta").classList.contains("hide-pali");
-
   if (e.altKey && e.key == "q") {
-    const bodyElement = document.querySelector("body");
-    bodyElement.style.background = "#42428f";
+    bodyTag.style.background = "#42428f";
     window.addBreaks = true;
   } else if (!paliHidden && e.target.id != "citation" && e.key == "s") {
-    console.log(e.target.id);
-    const bodyElement = document.querySelector("body");
-    bodyElement.classList.toggle("side-by-side");
+    if (localStorage.sideBySide === "true") {
+      bodyTag.classList.remove("side-by-side");
+      localStorage.sideBySide = "false";
+    } else {
+      bodyTag.classList.add("side-by-side");
+      localStorage.sideBySide = "true";
+    }
+
+    //bodyTag.classList.toggle("side-by-side");
   }
 };
+
+// initialize
+if (localStorage.sideBySide) {
+  if (localStorage.sideBySide == "true") {
+    bodyTag.classList.add("side-by-side");
+  }
+} else {
+  bodyTag.classList.remove("side-by-side");
+}
 
 if (localStorage.theme) {
   if (localStorage.theme === "light") {
