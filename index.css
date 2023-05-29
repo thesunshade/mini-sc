@@ -370,3 +370,7 @@ a:hover {
 .side-by-side .eng-lang {
   width: 48%;
 }
+
+.segment {
+  word-break: break-word
+}
