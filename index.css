@@ -192,7 +192,7 @@ h2 .pli-lang,
 h3 .pli-lang,
 h4 .pli-lang,
 h5 .pli-lang {
-  font-family: arial;
+  font-family: arial, sans-serif;
   color: var(--dark-gray);
 }
 
