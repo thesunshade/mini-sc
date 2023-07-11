@@ -64,9 +64,7 @@ const welcomeText = `<div class="instructions">
 </div>
 `;
 
-console.log(
-  "When there is a citation in the url, you can put &translatorsName at the end and it will grab that translation if it exists"
-);
+console.log("When there is a citation in the url, you can put &translatorsName at the end and it will grab that translation if it exists");
 
 homeButton.addEventListener("click", () => {
   document.location.search = "";
@@ -159,13 +157,9 @@ function buildSutta(slug) {
 
   let html = `<div class="button-area"><button id="hide-pali" class="hide-button">Toggle Pali</button></div>`;
 
-  const contentResponse = fetch(`https://suttacentral.net/api/bilarasuttas/${slug}/${translator}?lang=en`).then(
-    response => response.json()
-  );
+  const contentResponse = fetch(`https://suttacentral.net/api/bilarasuttas/${slug}/${translator}?lang=en`).then(response => response.json());
 
-  const suttaplex = fetch(`https://suttacentral.net/api/suttas/${slug}/${translator}?lang=en&siteLanguage=en`).then(
-    response => response.json()
-  );
+  const suttaplex = fetch(`https://suttacentral.net/api/suttas/${slug}/${translator}?lang=en&siteLanguage=en`).then(response => response.json());
 
   Promise.all([contentResponse, suttaplex])
     .then(responses => {
@@ -182,9 +176,7 @@ function buildSutta(slug) {
           openHtml = openHtml.replace(/^<span class='verse-line'>/, "<br><span class='verse-line'>");
         }
 
-        html += `${openHtml}<span class="segment" id ="${segment}"><span class="pli-lang" lang="pi">${
-          root_text[segment] ? root_text[segment] : ""
-        }</span><span class="eng-lang" lang="en">${translation_text[segment]}</span></span>${closeHtml}\n\n`;
+        html += `${openHtml}<span class="segment" id ="${segment}"><span class="pli-lang" lang="pi">${root_text[segment] ? root_text[segment] : ""}</span><span class="eng-lang" lang="en">${translation_text[segment]}</span></span>${closeHtml}\n\n`;
       });
       const scLink = `<p class="sc-link"><a href="https://suttacentral.net/${slug}/en/${translator}">On SuttaCentral.net</a></p>`;
 
@@ -218,11 +210,7 @@ function buildSutta(slug) {
     .catch(error => {
       suttaArea.innerHTML = `<p>Sorry, "${decodeURIComponent(slug)}" is not a valid sutta citation.
     <br>
-    Try on <a href="https://suttacentral.net/${decodeURIComponent(
-      slug
-    )}/en/sujato" rel="noreferrer" target="_blank">SuttaCentral.net</a> or the <a href="https://sutta.readingfaithfully.org/?q=${decodeURIComponent(
-        slug
-      )}" rel="noreferrer" target="_blank">Citation Helper</a>
+    Try on <a href="https://suttacentral.net/${decodeURIComponent(slug)}/en/sujato" rel="noreferrer" target="_blank">SuttaCentral.net</a> or the <a href="https://sutta.readingfaithfully.org/?q=${decodeURIComponent(slug)}" rel="noreferrer" target="_blank">Citation Helper</a>
     <br><br>
     Note: Suttas that are part of a series require that you enter the exact series. For example, <code>an1.1</code> will not work, but <code>an1.1-10</code> will.<br>
     ${welcomeText}`;
