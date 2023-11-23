@@ -64,7 +64,7 @@ const welcomeText = `<div class="instructions">
 </div>
 `;
 
-console.log("When there is a citation in the url, you can put &translatorsName at the end and it will grab that translation if it exists");
+console.log("When there is a citation in the url, you can add & followed by the translator id and press enter. This will load that translation if it exists. For example sc.readingfaithfully.org/?q=Thig5.4&soma");
 
 homeButton.addEventListener("click", () => {
   document.location.search = "";
