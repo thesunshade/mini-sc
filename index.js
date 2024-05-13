@@ -65,6 +65,7 @@ const welcomeText = `<div class="instructions">
 `;
 
 console.log("When there is a citation in the url, you can add & followed by the translator id and press enter. This will load that translation if it exists. For example sc.readingfaithfully.org/?q=Thig5.4&soma");
+console.log(`When Pali is displayed, you can change the layout to side by side with the "s" key`);
 
 homeButton.addEventListener("click", () => {
   document.location.search = "";
@@ -170,7 +171,6 @@ function buildSutta(slug) {
           translation_text[segment] = "";
         }
         let [openHtml, closeHtml] = html_text[segment].split(/{}/);
-        // openHtml = openHtml.replace(/^<span class='verse-line'>/, "<br><span class='verse-line'>");
 
         if (window.addBreaks === true) {
           openHtml = openHtml.replace(/^<span class='verse-line'>/, "<br><span class='verse-line'>");
